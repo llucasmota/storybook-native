@@ -4,7 +4,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
   bool checked = false;
   Map<String, dynamic> launchOptions;
 
-  _CheckboxPageState({@required this.launchOptions});
+  _CheckboxPageState({required this.launchOptions});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
           value: checked,
           onChanged: (newValue) {
             setState(() {
-              checked = newValue;
+              checked = newValue!;
             });
           },
           controlAffinity:
@@ -34,7 +34,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
 class CheckboxPage extends StatefulWidget {
   final Map<String, dynamic> launchOptions;
 
-  CheckboxPage({Key key, @required this.launchOptions}) : super(key: key);
+  CheckboxPage({Key? key, required this.launchOptions}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {

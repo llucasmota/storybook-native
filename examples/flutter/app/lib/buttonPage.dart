@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ButtonPage extends StatelessWidget {
   final Map<String, dynamic> launchOptions;
 
-  ButtonPage({Key key, @required this.launchOptions}) : super(key: key);
+  ButtonPage({Key? key, required this.launchOptions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +13,9 @@ class ButtonPage extends StatelessWidget {
         title: Text("Button Page"),
       ),
       body: Center(
-        child: RaisedButton(
-          color: Colors.blue,
-          textColor: Colors.white,
+        child: ElevatedButton(
+          // color: Colors.blue,
+          // textColor: Colors.white,
           onPressed: () {
             print("Button pressed");
           },

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BannerPage extends StatelessWidget {
   final Map<String, dynamic> launchOptions;
 
-  BannerPage({Key key, @required this.launchOptions}) : super(key: key);
+  BannerPage({Key? key, required this.launchOptions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,10 @@ class BannerPage extends StatelessWidget {
             color: Colors.blue,
             height: 100,
             child: Center(
-              child: Text(text, style: TextStyle(color: Colors.white),),
+              child: Text(
+                text,
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         ),

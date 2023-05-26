@@ -11,13 +11,15 @@
     "Adil Malik <adil_malik@intuit.com>"
   ],
   "scripts": {
-    "start": "yarn start-storybook",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider yarn start-storybook",
     "build:storybook": "yarn build-storybook"
   },
   "keywords": [],
   "dependencies": {
     "@storybook/native": "link:../../packages/native",
     "@storybook/native-addon": "link:../../packages/addon",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rgb-hex": "^3.0.0"
   }
 }

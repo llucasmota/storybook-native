@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TextPage extends StatelessWidget {
   final Map<String, dynamic> launchOptions;
 
-  TextPage({Key key, @required this.launchOptions}) : super(key: key);
+  TextPage({Key? key, required this.launchOptions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,8 @@ class TextPage extends StatelessWidget {
         title: Text("TextView Page"),
       ),
       body: Center(
-        child: FlatButton(
-          textColor: Colors.blue,
+        child: TextButton(
+          // textColor: Colors.blue,
           onPressed: () {
             print("text pressed");
           },

@@ -25,6 +25,7 @@
   "dependencies": {
     "@storybook/addon-controls": "^6.0.6",
     "@storybook/addon-docs": "^6.0.6",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addon-toolbars": "^6.0.6",
     "@storybook/addons": "^6.0.6",
     "@storybook/components": "^6.0.6",

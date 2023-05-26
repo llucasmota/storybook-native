@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title = ''}) : super(key: key);
 
   final String title;
 
@@ -40,7 +40,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool parametersRetrieved = false;
-  StreamSubscription _sub;
+  StreamSubscription? _sub;
 
   @override
   initState() {
@@ -51,9 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   dispose() {
     super.dispose();
-    if (_sub != null) {
-      _sub.cancel();
-    }
+    _sub?.cancel();
   }
 
   parseLink(Uri uri) {
@@ -61,9 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
     parseData(dict);
   }
 
-  Future<Null> initUniLinks() async {
+  Future<void> initUniLinks() async {
     try {
-      Uri initialLink = await getInitialUri();
+      Uri? initialLink = await getInitialUri();
       if (initialLink != null) {
         parseLink(initialLink);
       } else {
@@ -75,15 +73,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // Attach a listener to the stream
     print("Init URI links");
-    _sub = getUriLinksStream().listen((Uri uri) {
-      // Use the uri and warn the user, if it is not correct
-      if (uri != null) {
-        print(uri);
-        parseLink(uri);
-      } else {
-        print("Navigated to null link");
-      }
-    }, onError: (err) {
+    _sub = uriLinkStream.listen(
+        (Uri uri) {
+          // Use the uri and warn the user, if it is not correct
+          if (uri != null) {
+            print(uri);
+            parseLink(uri);
+          } else {
+            print("Navigated to null link");
+          }
+        } as void Function(Uri? event)?, onError: (err) {
       print(err);
       // Handle exception by warning the user their action did not succeed
     });
@@ -142,9 +141,9 @@ class _MyHomePageState extends State<MyHomePage> {
       var names = ["banner", "button", "checkbox", "chip", "fab", "text"];
       names.sort((a, b) => a.toString().compareTo(b.toString()));
       names.forEach((element) {
-        var widget = RaisedButton(
-          color: Colors.blue,
-          textColor: Colors.white,
+        var widget = ElevatedButton(
+          // color: Colors.blue,
+          // textColor: Colors.white,
           onPressed: () => navigateTo(element, {}),
           child: Text('Goto $element Page'),
         );

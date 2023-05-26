@@ -15,7 +15,7 @@ class HexColor extends Color {
 class FabPage extends StatelessWidget {
   final Map<String, dynamic> launchOptions;
 
-  FabPage({Key key, @required this.launchOptions}) : super(key: key);
+  FabPage({Key? key, required this.launchOptions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

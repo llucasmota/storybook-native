@@ -3,6 +3,7 @@ module.exports = {
     addons: [
         "@storybook/addon-docs",
         "@storybook/addon-controls",
+        "@storybook/addon-postcss",
         "@storybook/native-addon/dist/register.js"
     ]
 };

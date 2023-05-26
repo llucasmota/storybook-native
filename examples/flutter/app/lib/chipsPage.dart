@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ChipsPage extends StatelessWidget {
   final Map<String, dynamic> launchOptions;
 
-  ChipsPage({Key key, @required this.launchOptions}) : super(key: key);
+  ChipsPage({Key? key, required this.launchOptions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
